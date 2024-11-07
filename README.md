@@ -52,3 +52,14 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
 
 
 ## 3. MENSETING PROYEK
+
+#### 1. Menseting bahasa dan waktu
+
+        # Menseting bahasa
+        LANGUAGE_CODE = 'id'
+        # Menseting waktu
+        TIME_ZONE = 'Asia/Jakarta'
+
+        modified:   README.md
+        modified:   config/settings.py
+
