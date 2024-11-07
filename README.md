@@ -116,3 +116,6 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         modified:   config/settings.py
         modified:   config/urls.py
 
+
+## 4. DATABASE
+
