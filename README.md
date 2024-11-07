@@ -17,7 +17,10 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
 
 #### 6. Menjelajahi perintah django-admin
 
-#### 7. Membuat proyek Django
+
+## 2. PROYEK DJANGO
+
+#### 1. Membuat proyek Django
 
         modified:   .gitignore
         modified:   README.md
@@ -28,11 +31,11 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         new file:   config/config/wsgi.py
         new file:   config/manage.py
 
-#### 8. Menjalankan server pengembangan Django
+#### 2. Menjalankan server pengembangan Django
 
-#### 9. Struktur proyek Django
+#### 3. Struktur proyek Django
 
-#### 10. Memodifikasi struktur proyek
+#### 4. Memodifikasi struktur proyek
 
         modified:   README.md
         renamed:    config/config/__init__.py -> config/__init__.py
@@ -41,3 +44,8 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         renamed:    config/config/urls.py -> config/urls.py
         renamed:    config/config/wsgi.py -> config/wsgi.py
         renamed:    config/manage.py -> manage.py
+
+#### 5. Membuat file requirements.txt
+
+        modified:   README.md
+        new file:   requirements.txt
