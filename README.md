@@ -119,3 +119,61 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
 
 ## 4. DATABASE
 
+#### 1. Membuat MySQL database
+
+        # 1. Create database
+        λ mysql -u root
+        Welcome to the MySQL monitor.  Commands end with ; or \g.
+        Your MySQL connection id is 9
+        Server version: 8.0.30 MySQL Community Server - GPL
+
+        Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+        Oracle is a registered trademark of Oracle Corporation and/or its
+        affiliates. Other names may be trademarks of their respective
+        owners.
+
+        Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+        mysql>
+        mysql> CREATE DATABASE ind_80_dj5_halodunia;
+        Query OK, 1 row affected (0.14 sec)
+
+        # 2. Connect the project with database
+
+        # MySQL Database
+        DATABASES = {
+            'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'ind_80_dj5_halodunia',
+            'USER': 'root',
+            'PASSWORD': '',
+            'HOST':'localhost',
+            'PORT':'3306',
+            }
+        }
+
+        # 3. Check
+        (venv312512) λ python manage.py check
+        Traceback (most recent call last):
+          File "C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\venv312512\Lib\site-packages\django\db\backends\mysql\base.py", line 16, in <module>
+            import MySQLdb as Database
+        ModuleNotFoundError: No module named 'MySQLdb'
+
+        ...
+        raise ImproperlyConfigured(
+        django.core.exceptions.ImproperlyConfigured: Error loading MySQLdb module.
+        Did you install mysqlclient?
+
+        # 4. Install mysqlclient
+        (venv312512) λ pip install mysqlclient
+        Collecting mysqlclient
+          Downloading mysqlclient-2.2.5-cp312-cp312-win_amd64.whl.metadata (4.8 kB)
+        Downloading mysqlclient-2.2.5-cp312-cp312-win_amd64.whl (207 kB)
+        Installing collected packages: mysqlclient
+        Successfully installed mysqlclient-2.2.5
+
+        # 5. Check
+
+        (venv312512) λ python manage.py check
+        System check identified no issues (0 silenced).

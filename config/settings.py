@@ -144,5 +144,17 @@ STATIC_URL = 'static/'
 MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-        
+
+# MySQL Database
+DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.mysql',
+    'NAME': 'ind_80_dj5_halodunia',
+    'USER': 'root',
+    'PASSWORD': '',
+    'HOST':'localhost',
+    'PORT':'3306',
+    }
+}
+
 # ===================Skrip baru ends ==============
