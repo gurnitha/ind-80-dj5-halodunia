@@ -63,3 +63,35 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         modified:   README.md
         modified:   config/settings.py
 
+#### 2. Menseting path untuk templates
+
+        ...
+        import os
+        ...
+        # Menseting absolut path untuk templates
+        TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
+
+        # print(__file__)
+        # print(os.path.dirname(__file__))
+        # print(os.path.dirname(os.path.dirname(__file__)))
+
+        TEMPLATES = [
+            {
+                'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                'DIRS': [TEMPLATE_DIR, ],
+                ...
+        ]
+        ....
+
+        # testing
+        (venv312512) λ python manage.py check
+        C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\src\config\settings.py
+        C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\src\config
+        C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\src
+        System check identified no issues (0 silenced).
+
+        (venv312512) λ mkdir templates
+
+        modified:   README.md
+        modified:   config/settings.py
+
