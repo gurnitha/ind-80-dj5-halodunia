@@ -105,3 +105,14 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         modified:   README.md
         modified:   config/settings.py
 
+#### 4. Menseting path untuk file media
+
+        # Menseting absolute path untuk file media
+        MEDIA_DIR = os.path.join(BASE_DIR, 'media')
+        MEDIA_ROOT = MEDIA_DIR
+        MEDIA_URL = '/media/'
+
+        modified:   README.md
+        modified:   config/settings.py
+        modified:   config/urls.py
+
