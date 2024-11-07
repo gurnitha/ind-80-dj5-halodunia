@@ -49,3 +49,6 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
 
         modified:   README.md
         new file:   requirements.txt
+
+
+## 3. MENSETING PROYEK
