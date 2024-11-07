@@ -95,3 +95,13 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         modified:   README.md
         modified:   config/settings.py
 
+#### 3. Menseting path untuk file statis
+
+        # Menseting absolute path untuk file statis
+        STATIC_DIR = os.path.join(BASE_DIR, 'static')
+        STATICFILES_DIRS = [STATIC_DIR, ]
+        STATIC_URL = 'static/'
+
+        modified:   README.md
+        modified:   config/settings.py
+
