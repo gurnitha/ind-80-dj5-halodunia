@@ -365,3 +365,34 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         new file:   app/main/models.py
         new file:   app/main/tests.py
         new file:   app/main/views.py
+
+#### 2. Mengintegrasikan aplikasi main dengan proyek
+
+        # 1. Memodifikasi nama aplikasi
+        from django.apps import AppConfig
+
+
+        class MainConfig(AppConfig):
+            default_auto_field = 'django.db.models.BigAutoField'
+            name = 'app.main'
+
+        # 2. Mendaftarkan aplikasi
+        INSTALLED_APPS = [
+            'django.contrib.admin',
+            'django.contrib.auth',
+            'django.contrib.contenttypes',
+            'django.contrib.sessions',
+            'django.contrib.messages',
+            'django.contrib.staticfiles',
+
+            # my apps
+            'app.main.apps.MainConfig',
+        ]
+
+        # 3. Check
+        (venv312512) λ python manage.py check
+        System check identified no issues (0 silenced).
+        
+        modified:   README.md
+        modified:   app/main/apps.py
+        modified:   config/settings.py
