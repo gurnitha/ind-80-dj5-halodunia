@@ -177,3 +177,95 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
 
         (venv312512) λ python manage.py check
         System check identified no issues (0 silenced).
+
+#### 2. Melindungi file penting
+
+        # 1. Membuat file .env dan .env.example
+        (venv312512) λ touch .env .env.example
+
+        # 2. Setup db kredensial pada .env
+        DEBUG=True
+        SECRET_KEY=django-insecure-%5hrvtl+3hx7&6@-bfgr^ry$z(%liuh6(tet8brhr7n)=3w75c
+        DATABASE_NAME=ind_80_dj5_halodunia
+        DATABASE_USER=root
+        DATABASE_PASSWORD=
+        DATABASE_HOST=localhost
+        DATABASE_PORT=3306
+
+        # 3. Mengimplementasikan environ
+
+        # 3.1. / 1. Impor environ
+        import environ
+
+        # 3.2. / 2. Create environ
+        env = environ.Env(
+            # set casting, default value
+            DEBUG=(bool, False)
+        )
+
+        ...
+
+        # 3.3. / 3. Set the project base directory
+        BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+        # 3.4. / 4. Take environment variables from .env file
+        environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+        # Quick-start development settings - unsuitable for production
+        # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
+
+        # SECURITY WARNING: keep the secret key used in production secret!
+        # SECRET_KEY = 'django-insecure-%5hrvtl+3hx7&6@-bfgr^ry$z(%liuh6(tet8brhr7n)=3w75c'
+
+        # 3.5. / 5. Raises Django's ImproperlyConfigured
+        # exception if SECRET_KEY not in os.environ
+        SECRET_KEY = env('SECRET_KEY')
+
+        # SECURITY WARNING: don't run with debug turned on in production!
+        # DEBUG = True
+        # 3.6. / 6. False if not in os.environ because of casting above
+        DEBUG = env('DEBUG')
+
+        ...
+        # 3.7. / 7. Set db
+        DATABASES = {
+            'default': {
+                'ENGINE': os.environ.get('MYSQL_ENGINE'),
+                'NAME': os.environ.get('DATABASE_NAME'),
+                'USER': os.environ.get('DATABASE_USER'),
+                'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+                'HOST': os.environ.get('DATABASE_HOST'),
+                'PORT': os.environ.get('DATABASE_PORT'),
+            }
+        }
+
+        # 4. Check
+        (venv312512) λ python manage.py check
+        File "C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\src\config\settings.py", line 13, in <module>
+            import environ
+        ModuleNotFoundError: No module named 'environ'
+
+        # 5. Instal django-environ
+        (venv312512) λ pip install django-environ
+        Collecting django-environ
+          Using cached django_environ-0.11.2-py2.py3-none-any.whl.metadata (11 kB)
+        Using cached django_environ-0.11.2-py2.py3-none-any.whl (19 kB)
+        Installing collected packages: django-environ
+        Successfully installed django-environ-0.11.2
+
+        # 6. Check
+        (venv312512) λ python manage.py check
+        System check identified no issues (0 silenced).
+
+        # 7. Setup .env.example
+        DEBUG=True
+        SECRET_KEY=
+        DATABASE_NAME=
+        DATABASE_USER=
+        DATABASE_PASSWORD=
+        DATABASE_HOST=
+        DATABASE_PORT=
+
+        new file:   .env.example
+        modified:   README.md
+        modified:   config/settings.py
