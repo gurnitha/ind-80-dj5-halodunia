@@ -330,3 +330,6 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         modified:   README.md
         modified:   config/settings.py
         modified:   requirements.txt
+
+
+## 5. APLIKASI DJANGO
