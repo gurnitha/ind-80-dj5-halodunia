@@ -392,7 +392,37 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         # 3. Check
         (venv312512) λ python manage.py check
         System check identified no issues (0 silenced).
-        
+
         modified:   README.md
         modified:   app/main/apps.py
         modified:   config/settings.py
+
+#### 3. Membuat view halodunia
+
+        # 1. Membuat view halodunia
+        from django.shortcuts import render
+        from django.http import HttpResponse
+        # Create your views here.
+
+        def halodunia(request):
+            html = '<h1>Halo Dunia!</h1>'
+            return HttpResponse(html)
+
+        # 2. Membuat url
+
+        ...
+        # my module
+        from app.main import views
+
+
+        urlpatterns = [
+            # main
+            path('halodunia/', views.halodunia),
+            # admin
+            path('admin/', admin.site.urls),
+        ]
+        ...
+        
+        modified:   README.md
+        modified:   app/main/views.py
+        modified:   config/urls.py

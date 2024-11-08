@@ -6,8 +6,13 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
+# my module
+from app.main import views
+
 
 urlpatterns = [
+    # main
+    path('halodunia/', views.halodunia),
     # admin
     path('admin/', admin.site.urls),
 ]
