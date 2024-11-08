@@ -182,7 +182,8 @@ MEDIA_URL = '/media/'
 # 7. Set db
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('MYSQL_ENGINE'),
+        # 'ENGINE': os.environ.get('MYSQL_ENGINE'),
+        'ENGINE': os.environ.get('PSQL_ENGINE'),
         'NAME': os.environ.get('DATABASE_NAME'),
         'USER': os.environ.get('DATABASE_USER'),
         'PASSWORD': os.environ.get('DATABASE_PASSWORD'),

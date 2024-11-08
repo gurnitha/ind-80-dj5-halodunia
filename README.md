@@ -269,3 +269,64 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
         new file:   .env.example
         modified:   README.md
         modified:   config/settings.py
+
+#### 3. Mengganti MySQL database dengan PostgreSQL database 
+
+        # 1. Login ke server
+        λ psql -U postgres
+        psql (16.2)
+        WARNING: Console code page (437) differs from Windows code page (1252)
+                 8-bit characters might not work correctly. See psql reference
+                 page "Notes for Windows users" for details.
+        Type "help" for help.
+
+        postgres=#
+
+        # 2. Membuat database
+        postgres=# CREATE DATABASE ind_80_dj5_halodunia;
+        CREATE DATABASE
+
+        # 3. Konek proyek dengan database
+        # 7. (3.1) Set db
+        DATABASES = {
+            'default': {
+                # 'ENGINE': os.environ.get('MYSQL_ENGINE'),
+                'ENGINE': os.environ.get('PSQL_ENGINE'),
+                'NAME': os.environ.get('DATABASE_NAME'),
+                'USER': os.environ.get('DATABASE_USER'),
+                'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+                'HOST': os.environ.get('DATABASE_HOST'),
+                'PORT': os.environ.get('DATABASE_PORT'),
+            }
+        }
+        
+        # 4. Check
+        (venv312512) λ python manage.py check
+        Traceback (most recent call last):
+          File "C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\venv312512\Lib\site-packages\django\db\backends\postgresql\base.py", line 25, in <module>
+            import psycopg as Database
+        ModuleNotFoundError: No module named 'psycopg'
+        ...
+        File "C:\Users\ING\Desktop\workspace\ind-80-dj5-halodunia\venv312512\Lib\site-packages\django\db\backends\postgresql\base.py", line 29, in <module>
+            raise ImproperlyConfigured("Error loading psycopg2 or psycopg module")
+        django.core.exceptions.ImproperlyConfigured: Error loading psycopg2 or psycopg module
+
+        # 5. Instal psycopg2
+        (venv312512) λ pip install psycopg2
+        Collecting psycopg2
+          Downloading psycopg2-2.9.10-cp312-cp312-win_amd64.whl.metadata (5.0 kB)
+        Downloading psycopg2-2.9.10-cp312-cp312-win_amd64.whl (1.2 MB)
+           ---------------------------------------- 1.2/1.2 MB 6.4 MB/s eta 0:00:00
+        Installing collected packages: psycopg2
+        Successfully installed psycopg2-2.9.10
+
+        # 6. Check
+        (venv312512) λ python manage.py check
+        System check identified no issues (0 silenced).
+
+        # 7. Update requirements.txt
+        (venv312512) λ pip freeze > requirements.txt
+        
+        modified:   README.md
+        modified:   config/settings.py
+        modified:   requirements.txt
