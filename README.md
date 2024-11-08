@@ -333,3 +333,35 @@ Gighub: https://github.com/gurnitha/ind-80-dj5-halodunia
 
 
 ## 5. APLIKASI DJANGO
+
+#### 1. Membuat aplikasi main
+
+        # 1. Membuat direktori
+        (venv312512) λ mkdir app
+        (venv312512) λ mkdir app\main
+
+        # 2. Memverifikasi file manage.py
+        (venv312512) λ ls
+        manage.py*
+
+        # 3. Membuat aplikasi main
+        (venv312512) λ python manage.py startapp main app\main
+
+        # 4. Struktur aplikasi
+        ├── app
+            │   └── main
+            │       ├── __init__.py
+            │       ├── admin.py
+            │       ├── apps.py
+            │       ├── migrations
+            │       ├── models.py
+            │       ├── tests.py
+            │       └── views.py
+
+        new file:   app/main/__init__.py
+        new file:   app/main/admin.py
+        new file:   app/main/apps.py
+        new file:   app/main/migrations/__init__.py
+        new file:   app/main/models.py
+        new file:   app/main/tests.py
+        new file:   app/main/views.py
